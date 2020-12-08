@@ -1,0 +1,79 @@
+/**
+ * 模块级 build.gradle 文件位于每个 project/module/ 目录下，用于为其所在的特定模块配置构建设置。您可以通过
+ * 它自定义打包选项（如额外的构建类型和产品变种），以及替换 main/ 应用清单或顶层 build.gradle 文件中的设置。
+ */
+plugins {
+    id 'com.android.application'
+}
+
+// 自定义构建选项
+android {
+    signingConfigs {
+        release {
+            storeFile file('F:\\android-project\\key\\demo.jks')
+            storePassword '123456'
+            keyAlias 'demo'
+            keyPassword '123456'
+        }
+    }
+
+
+    // 指定 Gradle 使用的 Android API 级别来编译应用程序。可以使用此 API 级别及更低级别的功能
+    compileSdkVersion 30
+
+    // 指定SDK生成工具的版本，命令行实用工具和编译器的版本（需要使用SDK Manager下载构建工具）。
+    // 此属性是可选的，因为插件使用推荐的版本，默认情况下为构建工具。
+    buildToolsVersion "30.0.2"
+
+    /**
+     * defaultConfig 块封装了所有的默认设置和条目构建变体，并且可以从构建系统动态地覆盖 main/AndroidManifest.xml
+     * 中的某些属性。您可以配置产品特性以覆盖这些值适用于您应用的不同版本。
+     */
+    defaultConfig {
+
+        // 发布包的唯一标识。但源代码中仍需要引用 main/AndroidManifest.xml 文件中 package 属性定义的程序包名称
+        applicationId "com.hyman.demo"
+
+        // 定义运行应用程序所需的最低API级别
+        minSdkVersion 16
+
+        // 指定用于测试应用程序的API级别
+        targetSdkVersion 30
+
+        // 定义您的应用的版本号
+        versionCode 1
+
+        // 为您的应用程序定义一个用户友好的版本名称
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    /**
+     * 您可以在 buildTypes 块中配置多种构建类型。默认构建系统定义两种构建类型：调试和发布。
+     * 默认的构建配置中未明确显示调试的构建类型，但它包含调试工具，并使用调试密钥进行了签名。
+     * 发行版本类型适用 Proguard 设置，并且默认情况下未签名。
+     */
+    buildTypes {
+
+        // 默认 Android Studio 使用 minifyEnabled 将发布版本类型配置为启用代码收缩，并指定默认的Proguard规则文件
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.13.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

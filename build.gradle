@@ -1,0 +1,32 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+/ **
+  * 顶层 build.gradle 文件位于项目的根目录下，用于定义适用于项目中所有模块的构建配置。默认情况下，顶层构建文件
+  * 使用 buildscript 代码块定义项目中所有模块共用的 Gradle 代码库和依赖项。
+  *
+  * buildscript 块是配置存储库和 Gradle本身的依赖关系。但不能在此处配置模块的依赖关系。例如，此块包含 Android
+  * plugin 作为 Gradle 的依赖，因为它提供了 Gradle 额外需要构建 Android 应用模块的附加说明。
+  */
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
