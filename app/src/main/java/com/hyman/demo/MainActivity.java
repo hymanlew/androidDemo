@@ -1,4 +1,4 @@
-package com.hyman;
+package com.hyman.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,10 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+
+/**
+ * 主界面类，启动页面
+ */
 public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.hyman.demo.MESSAGE";
 
+    /**
+     * R.java 类对应了 res 整个文件夹目录
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,4 +1,4 @@
-package com.hyman;
+package com.hyman.demo;
 
 import org.junit.Test;
 

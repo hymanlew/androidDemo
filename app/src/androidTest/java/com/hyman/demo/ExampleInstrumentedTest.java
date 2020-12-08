@@ -1,4 +1,4 @@
-package com.hyman;
+package com.hyman.demo;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.hyman", appContext.getPackageName());
+        assertEquals("com.hyman.demo", appContext.getPackageName());
     }
 }

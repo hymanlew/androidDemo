@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.hyman">
 
+<!--
+    本文件也称为功能清单文件。
+    package 属性，是指定当前应用的唯一包名，即标识，不同的应用标识不能相同。
+ -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hyman.demo"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!--
+        icon，应用图标。
+        label，应用名称。
+        theme，应用主题。
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +37,13 @@
                 android:value=".MainActivity" />
         </activity>
 
-        <activity android:name=".MainActivity">
+        <!--
+            name，指定活动页面的全类名，包名可省略。
+            lable，界面的标题。
+            intent-filter，使当前页面作为应用程序的主界面。
+            LAUNCHER，可看成是一个加载器，使手机操作系统能够加载到本应用程序。
+        -->
+        <activity android:name=".MainActivity" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
