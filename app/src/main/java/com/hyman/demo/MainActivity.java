@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import java.util.logging.Logger;
 
 /**
  * 主界面类，启动页面
@@ -22,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // 监控下载事件
+        download();
     }
 
     /**
@@ -48,5 +55,38 @@ public class MainActivity extends AppCompatActivity {
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
+    }
+
+    public void download() {
+        Button dbutton = (Button) findViewById(R.id.downloadButton);
+
+        dbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                /**
+                 * 创建显示短时间提示文本的类：
+                 * 1，获取到外部类的当前对象：外部类.this
+                 *
+                 * 2，第三个参数，只有两个值可选择：
+                 * LENGTH_SHORT，短时间显示
+                 * LENGTH_LONG，长时间显示
+                 */
+                Toast toast = Toast.makeText(MainActivity.this, "开始下载了~~~", Toast.LENGTH_SHORT);
+                toast.show();
+                dbutton.setText("正在下载中。。");
+            }
+        });
+
+        /**
+         * 比较 Log 与 System.out
+         * - Log 提供了多个级别的打印输出方法，在 LogCat 窗口中显示的颜色不同。
+         * - Log 打印时必须指定 TAG（并且 TAG 可以自定义），在 LogCat 中可以通过添加 TAG 过滤查看。
+         * - LogCat 中可以通过两种方式过滤
+         *   - TAG名：显示所有此标签名的输出
+         *   - 应用包名：显示指定包名应用的所有输出
+         */
+        Log.i("INFO","输出 Info 信息");
+        Log.e("ERROR", "输出 ERROR 信息");
     }
 }
