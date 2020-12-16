@@ -40,6 +40,13 @@
         <!--
             name，指定活动页面的全类名，包名可省略。
             lable，界面的标题。
+
+            IntentFilter：
+                - 如果希望你的 Activity 可以被其它应用访问，则就需要在 AndroidManifest.xml 中，为 Activity
+                  指定 IntentFilter 的配置。
+                - 如果想启动其它应用的界面，则必须用隐式 intent，且目标界面 Activty 配置了 < intent-filter>。
+                - 其作用类似于 web 中为 Servlet 配置的 < url-pattern>。
+
             intent-filter，使当前页面作为应用程序的主界面。
             LAUNCHER，可看成是一个加载器，使手机操作系统能够加载到本应用程序。
         -->

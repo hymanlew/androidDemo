@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Called when the user taps the Send button
      *
+     * 显式：明确指定目标组件的意图，当操作当前应用自己的组件时使用。
+     * 显式：Intent（Context context, Class activityClass）
+     *
+     * 隐式：没有明确指定目标组件的意图，当操作其它应用的组件时使用。
+     * 隐式：Intent（String action），需要与 Activity 和 < intent-filter> 的 action 匹配
+     *
+     * 如果需要在 Activity 中启动另一个 Activity，那就必须要使用 Intent 对象。
      * Intent 构造函数会获取两个参数：Context 和 Class。因为 Activity 类是 Context 的子类。
      * 在本例中，系统将 Intent 传递到的应用组件的 Class Activity 并启动。
      *
