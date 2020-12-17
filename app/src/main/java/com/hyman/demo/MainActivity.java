@@ -2,6 +2,7 @@ package com.hyman.demo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 监控下载事件
+        // 监控点击下载事件
         download();
     }
 
@@ -64,9 +65,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void testMessage(View view) {
+        Toast toast = Toast.makeText(MainActivity.this, "测试点击按钮~~~", Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     public void download() {
         Button dbutton = (Button) findViewById(R.id.downloadButton);
-
         dbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

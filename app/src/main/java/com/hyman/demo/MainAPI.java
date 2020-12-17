@@ -29,6 +29,16 @@ package com.hyman.demo;
  */
 
 /**
+ * 设置监听的四种方式：
+ * Layout 中：android:onclick=“方法名”，然后在 Activity 中声明该方法：public void 方法名(View v) {  }
+ * view.setOnclickListener（new View.OnclickListener(){}）
+ * view.setOnclickListener（this）
+ * view.setOnclickListener（onclickListener 成员变量）
+ * setOnclickListener（xxx）是设置为点击监听
+ * setOnLongClickListener（onLongListener listener）是设置为长按监听
+ */
+
+/**
  * 1，手机的尺寸：屏幕对角线的长度，单位为英寸（2.54cm）。
  *
  * 2，手机的分辨率：屏幕能显示的像素的数量，一般为 **长方向上数量*宽方向上数量** 来表达。

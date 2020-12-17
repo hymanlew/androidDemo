@@ -23,7 +23,8 @@
 
     <!--
         1，在使用 android:onClick="" 配置点击事件时，指定的方法需要接收 View view 为入参。
-        2，当监听按钮事件时，需要在主页面中设置监听器。如果使用点击事件的话，则第一次点击不会生效。
+        2，当监听按钮事件时，也可以在主页面中设置监听器。
+        3，但是不能在 onClick 指定的方法中设置监听器，如果使用点击事件的话，则第一次点击不会生效。
     -->
     <Button
         android:id="@+id/sendButton"
@@ -45,12 +46,22 @@
         android:layout_width="190dp"
         android:layout_height="54dp"
         android:layout_marginTop="328dp"
-        android:onClick="download"
         android:text="@string/download"
         app:backgroundTint="#F79191"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.541"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:onClick="testMessage"
+        android:text="TestButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
