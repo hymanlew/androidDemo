@@ -1,8 +1,5 @@
 package com.hyman.demo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.logging.Logger;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * 主界面类，启动页面
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         // Do something in response to button
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        EditText editText = (EditText) findViewById(R.id.textValue);
+        EditText editText = findViewById(R.id.textValue);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
@@ -71,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void download() {
-        Button dbutton = (Button) findViewById(R.id.downloadButton);
+        Button dbutton = findViewById(R.id.downloadButton);
         dbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                  */
                 Toast toast = Toast.makeText(MainActivity.this, "开始下载了~~~", Toast.LENGTH_SHORT);
                 toast.show();
-                dbutton.setText("正在下载中。。");
+                dbutton.setText("正在下载。。");
             }
         });
 
@@ -100,5 +97,11 @@ public class MainActivity extends AppCompatActivity {
          */
         Log.i("INFO","输出 Info 信息");
         Log.e("ERROR", "输出 ERROR 信息");
+    }
+
+    public void onclickpage(View view) {
+        // Do something in response to button
+        Intent intent = new Intent(this, OnclickListennerActivity.class);
+        startActivity(intent);
     }
 }

@@ -30,7 +30,16 @@
         替换为以下代码，Android 系统会自动向应用栏添加向上按钮
         -->
         <activity android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:label="@string/msg_page">
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity android:name=".OnclickListennerActivity"
+            android:parentActivityName=".MainActivity"
+            android:label="@string/click_page">
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
