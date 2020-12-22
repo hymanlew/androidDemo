@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--
-    本文件也称为功能清单文件。
-    package 属性，是指定当前应用的唯一包名，即标识，不同的应用标识不能相同。
- -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hyman.demo"
     android:versionCode="1"
     android:versionName="1.0">
 
-    <!--
-        icon，应用图标。
-        label，应用名称。
-        theme，应用主题。
-    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo">
-
+        <activity android:name=".live.LiveActivity" />
         <!--
         添加向上导航功能：
         在应用中，不是主入口点的每个屏幕（所有不是主屏幕的屏幕）都必须提供导航功能，以便将用户引导至应用层
@@ -29,22 +20,39 @@
         在本文件中声明哪个 Activity 是逻辑父级。在文件中找到 DisplayMessageActivity 所在的标记，然后将其
         替换为以下代码，Android 系统会自动向应用栏添加向上按钮
         -->
-        <activity android:name=".DisplayMessageActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/msg_page">
+        <activity
+            android:name=".DisplayMessageActivity"
+            android:label="@string/msg_page"
+            android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".OnclickListennerActivity"
-            android:parentActivityName=".MainActivity"
-            android:label="@string/click_page">
+        <activity
+            android:name=".OnclickListennerActivity"
+            android:label="@string/click_page"
+            android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".live.LiveSonActivity"
+            android:label="@string/window_page"
+            android:parentActivityName=".live.LiveActivity"
+            android:theme="@style/Theme.AppCompat.Dialog.Alert"
+            tools:ignore="DuplicateActivity">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".live.LiveActivity" />
+        </activity>
+
 
         <!--
             name，指定活动页面的全类名，包名可省略。
@@ -59,9 +67,12 @@
             intent-filter，使当前页面作为应用程序的主界面。
             LAUNCHER，可看成是一个加载器，使手机操作系统能够加载到本应用程序。
         -->
-        <activity android:name=".MainActivity" android:label="@string/app_name">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

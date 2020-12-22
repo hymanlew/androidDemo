@@ -22,8 +22,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--
+        设置页面监听的两种方式：
         1，在使用 android:onClick="" 配置点击事件时，指定的方法需要接收 View view 为入参。
-        2，当监听按钮事件时，也可以在主页面中设置监听器。
+        2，当监听按钮事件时，也可以在主页面中设置监听器 setOnClickListener。
         3，但是不能在 onClick 指定的方法中设置监听器，如果使用点击事件的话，则第一次点击不会生效。
     -->
     <Button
@@ -73,6 +74,20 @@
         android:layout_marginTop="104dp"
         android:onClick="onclickpage"
         android:text="测试多按钮监听"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/livepage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="180dp"
+        android:onClick="livepage"
+        android:text="测试生命周期"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"

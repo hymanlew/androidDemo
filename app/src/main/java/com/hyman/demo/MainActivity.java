@@ -10,12 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.hyman.demo.common.Const;
+import com.hyman.demo.live.LiveActivity;
+
 /**
  * 主界面类，启动页面
  */
 public class MainActivity extends AppCompatActivity {
-
-    public static final String EXTRA_MESSAGE = "com.hyman.demo.MESSAGE";
 
     /**
      * R.java 类对应了 res 整个文件夹目录
@@ -58,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = findViewById(R.id.textValue);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(Const.EXTRA_MESSAGE, message);
         startActivity(intent);
     }
 
@@ -102,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
     public void onclickpage(View view) {
         // Do something in response to button
         Intent intent = new Intent(this, OnclickListennerActivity.class);
+        startActivity(intent);
+    }
+
+    public void livepage(View view) {
+        // Do something in response to button
+        Intent intent = new Intent(this.getApplicationContext(), LiveActivity.class);
         startActivity(intent);
     }
 }

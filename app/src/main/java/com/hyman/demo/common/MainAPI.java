@@ -1,4 +1,4 @@
-package com.hyman.demo;
+package com.hyman.demo.common;
 
 /**
  * [官方开发文档]: https://developer.android.google.cn/docs

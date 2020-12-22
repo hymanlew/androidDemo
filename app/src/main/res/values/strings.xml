@@ -3,6 +3,7 @@
 
     <string name="msg_page">显示信息页面</string>
     <string name="click_page">多按钮点击页面</string>
+    <string name="window_page">小窗口页面</string>
 
     <string name="value">我老婆</string>
     <string name="send">心动</string>
