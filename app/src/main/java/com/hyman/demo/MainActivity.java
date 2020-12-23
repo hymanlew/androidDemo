@@ -18,6 +18,10 @@ import com.hyman.demo.live.LiveActivity;
  */
 public class MainActivity extends AppCompatActivity {
 
+    public MainActivity(){
+        Log.i("LIVE", "MainActivity");
+    }
+
     /**
      * R.java 类对应了 res 整个文件夹目录
      */
@@ -55,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
      * (https://developer.android.google.cn/topic/libraries/architecture/navigation)。
      */
     public void sendMessage(View view) {
-        // Do something in response to button
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = findViewById(R.id.textValue);
         String message = editText.getText().toString();
@@ -68,6 +71,9 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
     }
 
+    /**
+     * 测试下载功能
+     */
     public void download() {
         Button dbutton = findViewById(R.id.downloadButton);
         dbutton.setOnClickListener(new View.OnClickListener() {
@@ -100,14 +106,18 @@ public class MainActivity extends AppCompatActivity {
         Log.e("ERROR", "输出 ERROR 信息");
     }
 
-    public void onclickpage(View view) {
-        // Do something in response to button
-        Intent intent = new Intent(this, OnclickListennerActivity.class);
-        startActivity(intent);
+    /**
+     * 测试多按钮监听事件
+     */
+    public void smspage(View view) {
+        // Intent intent = new Intent(this, OnclickListennerActivity.class);
+        // startActivity(intent);
     }
 
+    /**
+     * 测试 Activity 生命周期及 LauchMode 页面
+     */
     public void livepage(View view) {
-        // Do something in response to button
         Intent intent = new Intent(this.getApplicationContext(), LiveActivity.class);
         startActivity(intent);
     }

@@ -5,7 +5,6 @@ package com.hyman.demo.common;
  * [官方 API 文档]: https://developer.android.google.cn/reference/classes?hl=zh_cn
  *
  * 相关 API 如下：
- *
  * Activity：四大应用组件之一
  *   - onCreate()：自动调用的方法,在其中加载布局显示
  *   - setContentView(layoutld)：加载布局
@@ -40,14 +39,11 @@ package com.hyman.demo.common;
 
 /**
  * 1，手机的尺寸：屏幕对角线的长度，单位为英寸（2.54cm）。
- *
  * 2，手机的分辨率：屏幕能显示的像素的数量，一般为 **长方向上数量*宽方向上数量** 来表达。
- *
  * 3，手机的像素密度：pixels per inch，也称 PPi，即每英寸屏幕能显示的像素数，像素密度越大，显示画面细节就越丰富。
  * 计算：像素密度 = {1+V[(长度像素数-1)^2+(宽度像素数-1)^2]}/屏幕尺寸。
  *
  * 4，DPl：Dots Per Inch（每英寸所打印的点数或线数）的缩写，用来表示打印机打印分辨率，有时也会用 dpi 来代指 ppi。
- *
  * 5，手机的密度：Density，以 160ppi 为基准，即像素密度为 160 时 Density 为 1。
  * ldpi	120dpi	0.75
  * mdpi	160dpi	1.0
@@ -55,14 +51,12 @@ package com.hyman.demo.common;
  * xhdpi	320dpi	2.0
  *
  * 6，px：pixels（像素），1px 的长度就对应屏幕一个像素点的大小。
- *
  * 7，dp/dip：device-independent pixels（设备无关像素）（是真正开发使用时用的单位）。
  * 1dp = (dpi / 160) px
  * 1dp = density px（160 -> 1px，120 -> 0.75px，320 -> 2px）
  * 1px = 1/density dp
  *
  * 8，sp：scaled pixels（可缩放像素），与 dp 类似，但是可以根据用户的字体大小首选项进行缩放。
- *
  * 9，注意：Android 在运行时会自动将 dp/dip/sp 为单位的尺寸，转换为像素单位的值。
  * 10，注意：所以在布局文件中，除了字体大小（字体大小以 sp 为单位），其它的都要以 dp 为单位的。
  * 11，在布局文件视图的宽高尽量用 match_parent / wrap_content。
@@ -74,6 +68,21 @@ package com.hyman.demo.common;
  * 每个色相用一个 2 位的十六进制的数来表达。
  * 颜色值的前面为带一个字符 # 号。
  * 具体需要什么颜色可以查颜色表。
+ */
+
+/**
+ * TaskStack
+ * - 在 Android 中，系统用 Task Stack（Back Stack 任务栈）结构来存储和管理启动的 Activity 对象。
+ * - 一个应用启动，系统就会为其创建一个对应的 Task Stack 来存储并管理该应用的 Activity 对象。
+ * - 只有最上面的任务栈的栈顶的 Activity 才能显示在窗口中。
+ *
+ * LauchMode：
+ * 在 Android 中，启动一个 Activity 有时需要创建一个新对象，有时需要复用已有的对象，可以在配置 activity 时通过
+ * launchMode 属性来指定其策略。launchMode 属性值有 4个，分别为：
+ * - standard：标准模式，每次调用 startActivity() 方法就会产生一个新的实例。它是默认的模式。
+ * - singleTop：如果已经有一个目标的实例位于 Activity 栈的顶部时，就不产生新的实例；否则会产生一个新的实例。
+ * - singleTask：所有的 Activity 只有一个实例，默认在当前 Task 中。即在栈中所有实例都是单例的。
+ * - singleInstance：只有一个实例，并且每个实例创建时会新建一个栈，且此栈中不能有其它对象。
  */
 public class MainAPI {
 }
