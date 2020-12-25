@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Demo">
-
+        <activity android:name=".sms.SmsMainActivity"></activity>
         <!--
         添加向上导航功能：
         在应用中，不是主入口点的每个屏幕（所有不是主屏幕的屏幕）都必须提供导航功能，以便将用户引导至应用层
@@ -43,8 +43,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".live.LiveActivity" />
         </activity>
-
-
         <!--
             name，指定活动页面的全类名，包名可省略。
             lable，界面的标题。

@@ -8,4 +8,5 @@
     <string name="value">我老婆</string>
     <string name="send">心动</string>
     <string name="download">下载</string>
+    <string name="sms_phone_key">电话号码</string>
 </resources>
