@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -33,11 +35,57 @@ public class WebViewActivity extends AppCompatActivity {
 
         // WebView 默认会调用系统浏览器加载 url，通过重写该方法，实现在当前应用内完成页面加载。
         webView.setWebViewClient(new WebViewClient(){
+
+            /**
+             * 当前界面呢是安卓原生加载的 webview 界面，点击返回之后仍然在当前界面对url进行替换，即是在不停
+             * 的刷新当前主界面，怎么都返不回。
+             * 原因是因为某个界面有重定向的话就会出现这种问题，那么首先我们该如何判断他是重定向界面呢：
+             *
+             * WebView 有一个 getHitTestResult():返回的是一个 HitTestResult，一般会根据打开的链接的类型，
+             * 返回一个extra的信息，如果打开链接不是一个url，或者打开的链接是JavaScript的url，他的类型是
+             * UNKNOWN_TYPE，这个url就会通过requestFocusNodeHref(Message)异步重定向。返回的extra为null，或者没有返回extra。根据此方法的返回值，判断是否为null，可以用于解决网页重定向问题。
+             *
+             *
+             *
+             *
+             * 返回: return true;  webview处理url是根据程序来执行的。 
+             *
+             * 返回: return false; webview处理url是在webview内部执行。
+             *
+             * 那么如果是重定向的呢，我们就return false,不是重定向就return true
+             *
+             * 注意：这个shouldOverrideUrlLoading方法里面就不要再写view.loadUrl(url)了
+             *
+             * 因为你初始化的时候肯定已经load过了，然而这个会默认引用你传的那个url，
+             *
+             * 返回时判断是否能返回上个url，不能就直接finish掉这个界面，希望能帮助到大家
+             *
+             */
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+                WebView.HitTestResult result = view.getHitTestResult();
+                if(result != null){
+                    return false;
+                }else {
+                    view.loadUrl(url);
+                    return true;
+                }
             }
+        });
+
+        // WebView监听网页内部返回键 实现前进、后退、与刷新功能
+        webView.setOnKeyListener((v, keyCode, event) -> {
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                    if (webView.canGoBack()) {
+                        webView.goBack();
+                        return true;
+                    } else {
+                        finish();
+                    }
+                }
+            }
+            return false;
         });
     }
 
@@ -56,6 +104,9 @@ public class WebViewActivity extends AppCompatActivity {
         webView.goBackOrForward(1);
         // 负数为后退
         webView.goBackOrForward(-1);
+
+        // 刷新
+        webView.reload();
     }
 
     @SuppressLint("SetJavaScriptEnabled")
