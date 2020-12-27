@@ -121,4 +121,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this.getApplicationContext(), LiveActivity.class);
         startActivity(intent);
     }
+
+    /**
+     * 测试内嵌 h5 页面
+     */
+    public void showWebpage(View view) {
+        Intent intent = new Intent(this, WebViewActivity.class);
+        startActivity(intent);
+    }
+
 }

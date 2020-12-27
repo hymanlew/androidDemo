@@ -5,14 +5,33 @@
     android:versionCode="1"
     android:versionName="1.0">
 
+    <!-- 添加网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
+    <!--
+    android：usesCleartextTraffic：
+    指示应用程序是否使用明文网络流量，例如明文 HTTP。目标 API 级别为 27 或更低的应用程序的默认值为 true。
+    面向 API 级别 28 或更高级别的应用默认为 false。
+    当属性设置为 false 时，平台组件（例如 HTTP 和 FTP 堆栈，DownloadManager 和 MediaPlayer）将拒绝应用
+    程序使用明文流量的请求。强烈建议第三方库也采用此设置。
+    避免明文通信的主要原因是缺乏机密性，真实性和防篡改保护；网络攻击者可以窃听所传输的数据，并且还可以对其
+    进行修改而不会被检测到。
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Demo">
-        <activity android:name=".sms.SmsMainActivity"></activity>
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.Demo"
+        tools:targetApi="m">
+
+        <activity android:name=".WebViewActivity"></activity>
+        <activity android:name=".sms.SmsMainActivity" />
+
         <!--
         添加向上导航功能：
         在应用中，不是主入口点的每个屏幕（所有不是主屏幕的屏幕）都必须提供导航功能，以便将用户引导至应用层
