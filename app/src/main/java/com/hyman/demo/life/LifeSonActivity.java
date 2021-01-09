@@ -1,4 +1,4 @@
-package com.hyman.demo.live;
+package com.hyman.demo.life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,9 +7,9 @@ import android.util.Log;
 
 import com.hyman.demo.R;
 
-public class LiveSonActivity extends AppCompatActivity {
+public class LifeSonActivity extends AppCompatActivity {
 
-    public LiveSonActivity(){
+    public LifeSonActivity(){
         Log.i("LIVE", "LiveSonActivity");
     }
 

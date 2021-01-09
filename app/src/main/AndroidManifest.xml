@@ -49,18 +49,18 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".live.LiveActivity" />
+        <activity android:name=".life.LifeActivity" />
         <activity
-            android:name=".live.LiveSonActivity"
+            android:name=".life.LifeSonActivity"
             android:label="@string/window_page"
-            android:parentActivityName=".live.LiveActivity"
+            android:parentActivityName=".life.LifeActivity"
             android:theme="@style/Theme.AppCompat.Dialog.Alert"
             tools:ignore="DuplicateActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".live.LiveActivity" />
+                android:value=".life.LifeActivity" />
         </activity>
         <!--
             name，指定活动页面的全类名，包名可省略。

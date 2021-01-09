@@ -1,4 +1,4 @@
-package com.hyman.demo.live;
+package com.hyman.demo.life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,9 +35,9 @@ import com.hyman.demo.R;
  * 2. onDestroy(): 在 Activity 死亡之前调用, 只执行一次
  * 3. onResume(): 界面只有经历此方法才能可见可操作
  */
-public class LiveActivity extends AppCompatActivity {
+public class LifeActivity extends AppCompatActivity {
 
-    public LiveActivity(){
+    public LifeActivity(){
         Log.i("LIVE", "LiveActivity");
     }
 
@@ -85,6 +85,6 @@ public class LiveActivity extends AppCompatActivity {
     }
 
     public void liveButton(View view){
-        startActivity(new Intent(this, LiveSonActivity.class));
+        startActivity(new Intent(this, LifeSonActivity.class));
     }
 }

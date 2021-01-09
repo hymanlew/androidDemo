@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hyman.demo.common.Const;
-import com.hyman.demo.live.LiveActivity;
+import com.hyman.demo.life.LifeActivity;
 
 /**
  * 主界面类，启动页面
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
      * 测试 Activity 生命周期及 LauchMode 页面
      */
     public void livepage(View view) {
-        Intent intent = new Intent(this.getApplicationContext(), LiveActivity.class);
+        Intent intent = new Intent(this.getApplicationContext(), LifeActivity.class);
         startActivity(intent);
     }
 
